@@ -4,48 +4,49 @@
 import PackageDescription
 
 let package = Package(
-    name: "TSKit",
+    name: "AHKit",
     platforms: [.iOS(.v9)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(name: "TSKit.Core", targets: ["TSKit.Core"]),
-        .library(name: "TSKit.Log", targets: ["TSKit.Log"]),
-        .library(name: "TSKit.Storage", targets: ["TSKit.Storage"]),
-        .library(name: "TSKit.UI", targets: ["TSKit.UI"]),
-        .library(name: "TSKit.Validation", targets: ["TSKit.Validation"]),
-        .library(name: "TSKit.Networking", targets: ["TSKit.Networking"]),
-        .library(name: "TSKit.Networking.Alamofire", targets: ["TSKit.Networking", "TSKit.Networking.Alamofire"]),
-        .library(name: "TSKit.Stomp", targets: ["TSKit.Stomp"]),
-        .library(name: "TSKit.Injection", targets: ["TSKit.Injection"])
+        .library(name: "AHFoundation", targets: ["AHFoundation"]),
+        .library(name: "AHLog", targets: ["AHLog"]),
+        .library(name: "AHStorage", targets: ["AHStorage"]),
+        .library(name: "AHUI", targets: ["AHUI"]),
+        .library(name: "AHValidation", targets: ["AHValidation"]),
+        .library(name: "AHNetworking", targets: ["AHNetworking"]),
+        .library(name: "AHNetworkingAlamofire", targets: ["AHNetworking", "AHNetworkingAlamofire"]),
+        .library(name: "AHStomp", targets: ["AHStomp"]),
+        .library(name: "AHInjection", targets: ["AHInjection"]),
+        .library(name: "AHKit", targets: ["AHFoundation", "AHLog", "AHStorage", "AHUI", "AHValidation", "AHNetworking", "AHInjection"])
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "4.0.0")),
         .package(url: "https://github.com/daltoniam/Starscream.git", .upToNextMajor(from: "4.0.0")),
     ],
     targets: [
-        .target(name: "TSKit.Core", dependencies: ["TSKit.Core.ObjC"]),
-        .target(name: "TSKit.Core.ObjC", dependencies: []),
+        .target(name: "AHFoundation", dependencies: ["AHObjCBridging"]),
+        .target(name: "AHObjCBridging", dependencies: []),
        
-        .target(name: "TSKit.Log", dependencies: ["TSKit.Core"]),
-        .target(name: "TSKit.Storage", dependencies: ["TSKit.Core"]),
+        .target(name: "AHLog", dependencies: ["AHFoundation"]),
+        .target(name: "AHStorage", dependencies: ["AHFoundation"]),
        
-        .target(name: "TSKit.UI", dependencies: ["TSKit.Core"], exclude: ["WIP"]),
+        .target(name: "AHUI", dependencies: ["AHFoundation"], exclude: ["WIP"]),
        
-        .target(name: "TSKit.System", dependencies: ["TSKit.Core"]),
-        .target(name: "TSKit.Injection", dependencies: ["TSKit.Core", "TSKit.Log"]),
+        .target(name: "AHSystem", dependencies: ["AHFoundation"]),
+        .target(name: "AHInjection", dependencies: ["AHFoundation", "AHLog"]),
        
-        .target(name: "TSKit.Validation", dependencies: ["TSKit.Core"]),
+        .target(name: "AHValidation", dependencies: ["AHFoundation"]),
        
-        .target(name: "TSKit.Networking", dependencies: ["TSKit.Core"]),
-        .target(name: "TSKit.Networking.Alamofire", dependencies: ["TSKit.Networking", "Alamofire", "TSKit.Core", "TSKit.Log", "TSKit.Injection"]),
+        .target(name: "AHNetworking", dependencies: ["AHFoundation"]),
+        .target(name: "AHNetworkingAlamofire", dependencies: ["AHNetworking", "Alamofire", "AHFoundation", "AHLog", "AHInjection"]),
         
-        .target(name: "TSKit.Stomp", dependencies: ["TSKit.Core", "Starscream"]),
+        .target(name: "AHStomp", dependencies: ["AHFoundation", "Starscream"]),
         
         
-        .testTarget(name: "TSKit.Core.Tests", dependencies: ["TSKit.Core"]),
-        .testTarget(name: "TSKit.Storage.Tests", dependencies: ["TSKit.Storage"]),
-        .testTarget(name: "TSKit.Log.Tests", dependencies: ["TSKit.Log"]),
-        .testTarget(name: "TSKit.Stomp.Tests", dependencies: ["TSKit.Stomp"]),
+        .testTarget(name: "AHFoundationTests", dependencies: ["AHFoundation"]),
+        .testTarget(name: "AHStorageTests", dependencies: ["AHStorage"]),
+        .testTarget(name: "AHLogTests", dependencies: ["AHLog"]),
+        .testTarget(name: "AHStompTests", dependencies: ["AHStomp"]),
     ],
     swiftLanguageVersions: [.version("5.3")]
 )
