@@ -2,8 +2,9 @@
 // - Author: Arkadii Hlushchevskyi
 // - Copyright: © 2022. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.UI/blob/master/LICENSE.md
-
+#if os(iOS)
 import UIKit
+
 /// `TSPageViewController`'s base delegate which provides a couple of methods to report state changes of the `TSPageViewController`.
 public protocol TSPageViewControllerBaseDelegate: class {
     /**
@@ -71,3 +72,4 @@ public extension TSPageViewControllerDelegate {
     func pageController(_ pageController : TSPageViewController, didShow controller : UIViewController, forPageAt index : Int) {}
     func pageController(_ pageController : TSPageViewController, didCancelShow controller : UIViewController, forPageAt index : Int) {}
 }
+#endif

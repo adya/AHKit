@@ -2,7 +2,7 @@
 // - Author: Arkadii Hlushchevskyi
 // - Copyright: © 2022. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.UI/blob/master/LICENSE.md
-
+#if os(iOS)
 import UIKit
 //import AHLog
 
@@ -430,4 +430,4 @@ private class TSPageViewControllerDefaultHelper: TSPageViewControllerHelper {
         return self.pageController.currentPage
     }
 }
-
+#endif

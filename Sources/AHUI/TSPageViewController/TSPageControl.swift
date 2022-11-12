@@ -16,7 +16,7 @@
  2. Provide this custom view in dataSource.indicatorViewForIndex method
  3. Enjoy your custom indicators.
  */
-
+#if os(iOS)
 import UIKit
 
 public protocol TSPageControlDelegate: class {
@@ -315,3 +315,4 @@ private class TSImageIndicatorView: UIImageView, TSIndicatorView {
         
     }
 }
+#endif

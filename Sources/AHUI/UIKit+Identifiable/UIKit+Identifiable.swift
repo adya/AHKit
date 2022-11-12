@@ -3,6 +3,7 @@
 // - Copyright: © 2022. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.UI/blob/master/LICENSE.md
 
+#if os(iOS)
 import UIKit
 import AHFoundation
 
@@ -198,3 +199,4 @@ public extension UINib {
             return self.instantiate(withOwner: owner).first as! ViewType
     }
 }
+#endif

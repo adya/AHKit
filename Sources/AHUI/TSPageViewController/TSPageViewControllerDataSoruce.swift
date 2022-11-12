@@ -2,7 +2,7 @@
 // - Author: Arkadii Hlushchevskyi
 // - Copyright: © 2022. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.UI/blob/master/LICENSE.md
-
+#if os(iOS)
 import UIKit
 
 /// `TSPageViewController`'s data source used to provide `UIViewController` representing a single page.
@@ -39,3 +39,4 @@ public protocol TSPageViewControllerDataSource: class {
      */
     func pageController(_  pageController: TSPageViewController, reuseIdentifierForPageAt index: Int) -> String
 }
+#endif

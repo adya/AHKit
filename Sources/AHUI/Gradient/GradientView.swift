@@ -1,3 +1,8 @@
+// - Since: 11/28/2021
+// - Author: Arkadii Hlushchevskyi
+// - Copyright: © 2022. Arkadii Hlushchevskyi.
+// - Seealso: https://github.com/adya/TSKit.UI/blob/master/LICENSE.md
+#if os(iOS)
 import UIKit
 
 @IBDesignable
@@ -66,3 +71,4 @@ class GradientView: UIView {
         gradientLayer.frame = bounds
     }
 }
+#endif

@@ -2,10 +2,9 @@
 // - Author: Arkadii Hlushchevskyi
 // - Copyright: © 2022. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.UI/blob/master/LICENSE.md
-
-import AHFoundation
+#if os(iOS)
 import UIKit
-
+import AHFoundation
 
 /**
  This extension uses `Identifiable` to provide simplified type-safe dequeueing of `UICollectionReusableView` and its subclasses.
@@ -68,3 +67,4 @@ public extension UICollectionView {
         return view as! T
     }
 }
+#endif
